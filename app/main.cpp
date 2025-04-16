@@ -15,8 +15,7 @@ auto format_as(const Matrix2d& matrix)
     return ss.str();
 }
 
-}
-
+} // namespace Eigen
 
 int main(int argc, char* argv[])
 {
