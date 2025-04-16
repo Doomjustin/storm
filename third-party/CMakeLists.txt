@@ -18,6 +18,8 @@ target_compile_features(spdlog INTERFACE cxx_std_23)
 
 add_subdirectory(Catch2 EXCLUDE_FROM_ALL)
 
+add_subdirectory(eigen EXCLUDE_FROM_ALL)
+target_compile_features(eigen INTERFACE cxx_std_23)
 
 set(BUILD_TESTING ${BUILD_TESTING_BCKP} CACHE BOOL "Build tests (default variable for CTest)" FORCE) #Set it back to its past value
 
@@ -28,4 +30,5 @@ target_link_libraries(base
         gsl::gsl
         fmt::fmt
         spdlog::spdlog
+        Eigen3::Eigen
 )
