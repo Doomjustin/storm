@@ -50,3 +50,5 @@ out/
 
 # customer
 **/config.h
+
+.venv/

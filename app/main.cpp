@@ -3,12 +3,19 @@
 #include <fmt/format.h>
 
 #include <cstdlib>
-#include <iostream>
 #include <sstream>
 
 namespace Eigen {
 
-auto format_as(const Matrix2d& matrix)
+template <typename T, int Rows, int Cols, int Options, int MaxRows, int MaxCols>
+auto format_as(const Matrix<T, Rows, Cols, Options, MaxRows, MaxCols>& matrix)
+{
+    std::stringstream ss{};
+    ss << matrix;
+    return ss.str();
+}
+
+auto format_as(const MatrixXd& matrix)
 {
     std::stringstream ss{};
     ss << matrix;
@@ -19,17 +26,9 @@ auto format_as(const Matrix2d& matrix)
 
 int main(int argc, char* argv[])
 {
-    Eigen::Matrix2d m;
-    m << 1, 2, 3, 4;
-
-    fmt::println("{}", m);
-
-    std::cout << m << '\n';
-
-    std::stringstream ss{};
-    ss << m;
-
-    std::cout << ss.str() << '\n';
+    using namespace Eigen;
+    auto m = Eigen::MatrixXd::Random(3, 3);
+    fmt::print("Matrix:\n{}\n", m);
 
     return EXIT_SUCCESS;
 }
