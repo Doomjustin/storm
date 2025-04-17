@@ -21,6 +21,9 @@ add_subdirectory(Catch2 EXCLUDE_FROM_ALL)
 add_subdirectory(eigen EXCLUDE_FROM_ALL)
 target_compile_features(eigen INTERFACE cxx_std_23)
 
+add_subdirectory(json EXCLUDE_FROM_ALL)
+target_compile_features(nlohmann_json INTERFACE cxx_std_23)
+
 set(BUILD_TESTING ${BUILD_TESTING_BCKP} CACHE BOOL "Build tests (default variable for CTest)" FORCE) #Set it back to its past value
 
 add_library(base INTERFACE)
@@ -31,4 +34,5 @@ target_link_libraries(base
         fmt::fmt
         spdlog::spdlog
         Eigen3::Eigen
+        nlohmann_json::nlohmann_json
 )
