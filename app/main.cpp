@@ -1,12 +1,12 @@
 #include <Eigen/Eigen>
 #include <fmt/base.h>
 #include <fmt/format.h>
-#include <iomanip>
 #include <nlohmann/json.hpp>
 
 #include <cstdlib>
 #include <sstream>
 #include <fstream>
+#include <iomanip>
 
 namespace Eigen {
 
@@ -28,12 +28,14 @@ auto format_as(const MatrixXd& matrix)
 } // namespace Eigen
 
 namespace nlohmann {
-    auto format_as(const json& data)
-    {
-        std::stringstream ss{};
-        ss << std::setw(4) << data;
-        return ss.str();
-    }
+
+auto format_as(const json& data)
+{
+    std::stringstream ss{};
+    ss << std::setw(4) << data;
+    return ss.str();
+}
+
 } // namespace nlohmann
 
 template<typename T>
@@ -57,7 +59,6 @@ int main(int argc, char* argv[])
     auto data = json::parse(file);
     fmt::println("pi: {}", get_value<double>(data, "pi"));
     fmt::println("{}", data);
-
 
     return EXIT_SUCCESS;
 }
