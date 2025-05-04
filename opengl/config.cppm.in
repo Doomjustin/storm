@@ -1,0 +1,24 @@
+export module opengl.config;
+
+export
+namespace opengl {
+
+constexpr auto PROJECT_VERSION = "@PROJECT_VERSION@";
+
+constexpr int PROJECT_MAJOR = @PROJECT_VERSION_MAJOR@;
+
+constexpr int PROJECT_MINOR = @PROJECT_VERSION_MINOR@;
+
+constexpr int PROJECT_PATCH = @PROJECT_VERSION_PATCH@;
+
+constexpr auto PROJECT_NAME = "@PROJECT_NAME@";
+
+constexpr auto PROJECT_SOURCE_DIR = "@CMAKE_CURRENT_LIST_DIR@";
+
+constexpr auto RESOURCE_DIR = "@PROJECT_SOURCE_DIR@/resource";
+
+constexpr auto OPENGL_VERSION_MAJOR = @OPENGL_VERSION_MAJOR@;
+
+constexpr auto OPENGL_VERSION_MINOR = @OPENGL_VERSION_MINOR@;
+
+} // namespace opengl

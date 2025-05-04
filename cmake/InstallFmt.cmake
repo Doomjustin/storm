@@ -8,5 +8,4 @@ FetchContent_Declare(
     GIT_PROGRESS   TRUE
 )
 
-
 FetchContent_MakeAvailable(fmt)

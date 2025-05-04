@@ -28,8 +28,10 @@ include(InstallSpdlog)
 include(InstallGSL)
 include(InstallDoctest)
 include(InstallPybind11)
-
+include(InstallGLFW)
+add_subdirectory(extern)
 
 find_lto(CXX)
 
 add_subdirectory(src)
+add_subdirectory(opengl)
