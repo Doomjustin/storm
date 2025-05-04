@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.30)
 
-project(CppTemplate
+project(STORM
     VERSION 0.0.1
     LANGUAGES C CXX
 )
@@ -20,17 +20,16 @@ set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
 include(ConfigSafeGuards)
 include(Colors)
-include(Warnings)
 include(LTO)
 include(CopyDllsForDebug)
-
-find_lto(CXX)
-
+include(Warnings)
 include(InstallFmt)
 include(InstallSpdlog)
-# include(InstallCatch2)
+include(InstallGSL)
 include(InstallDoctest)
 include(InstallPybind11)
 
-add_subdirectory(app)
+
+find_lto(CXX)
+
 add_subdirectory(src)

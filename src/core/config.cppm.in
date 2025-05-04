@@ -1,0 +1,30 @@
+module;
+
+#include <doctest/doctest.h>
+
+export module storm.config;
+
+export
+namespace storm {
+
+constexpr auto PROJECT_VERSION = "@PROJECT_VERSION@";
+
+constexpr int PROJECT_MAJOR = @PROJECT_VERSION_MAJOR@;
+
+constexpr int PROJECT_MINOR = @PROJECT_VERSION_MINOR@;
+
+constexpr int PROJECT_PATCH = @PROJECT_VERSION_PATCH@;
+
+constexpr auto PROJECT_NAME = "@PROJECT_NAME@";
+
+constexpr auto PROJECT_SOURCE_DIR = "@PROJECT_SOURCE_DIR@";
+
+constexpr auto RESOURCE_DIR = "@PROJECT_SOURCE_DIR@/src/resource";
+
+} // namespace storm
+
+
+TEST_CASE("test version")
+{
+    REQUIRE(storm::PROJECT_VERSION == "0.0.1");
+}
